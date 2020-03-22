@@ -1,0 +1,10 @@
+.box{
+    padding:2em 1em;
+    margin:5em 50em 5em 50em;
+    border : 1px solid #191919;
+}
+body{
+background:linear-gradient(rgba(181, 181, 211, 0.2),rgba(153, 153, 187, 0.2)),url("https://images.pexels.com/photos/17727/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+background-size:cover;
+background-position: center;
+}
