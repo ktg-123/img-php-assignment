@@ -1,10 +1,92 @@
 .box{
     padding:2em 1em;
-    margin:5em 50em 5em 50em;
+    margin:5em 40em 5em 50em;
     border : 1px solid #191919;
 }
 body{
-background:linear-gradient(rgba(181, 181, 211, 0.2),rgba(153, 153, 187, 0.2)),url("https://images.pexels.com/photos/17727/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+background:linear-gradient(rgba(181, 181, 211, 0.2),rgba(153, 153, 187, 0.2));
 background-size:cover;
 background-position: center;
+}
+
+.error {
+font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+box-sizing: inherit;
+border-radius: 0.28571429rem;
+padding: 1em 1.5em;
+line-height: 1.4285em;
+background: #F8F8F9;
+position: relative;
+min-height: 1em;
+margin: 1em 0em;
+background-color: #FFF6F6;
+color: #9F3A38;
+font-size:1em
+}
+.field{
+font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+line-height: 1.4285em;
+color: rgba(0, 0, 0, 0.87);
+font-size: 1rem;
+margin: 0em 0.85714286em 0em 0em;
+}
+input{
+    font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+margin: 0em;
+outline: none;
+line-height: 1.21428571em;
+padding: 0.67857143em 1em;
+font-size: 1em;
+background: #FFFFFF;
+border: 1px solid rgba(34, 36, 38, 0.15);
+color: rgba(0, 0, 0, 0.87);
+border-radius: 0.28571429rem;
+box-shadow: 0em 0em 0em 0em transparent inset;
+}
+button:hover {
+    background-color: #CACBCD;
+    background-image: none;
+    box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+    color: rgba(0, 0, 0, 0.8);
+}
+button {
+    cursor: pointer;
+    display: inline-block;
+    min-height: 1em;
+    outline: none;
+    border: none;
+    vertical-align: baseline;
+    background: #E0E1E2 none;
+        background-color: rgb(224, 225, 226);
+        background-image: none;
+    color: rgba(0, 0, 0, 0.6);
+    font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    margin: 0em 0.25em 0em 0em;
+    padding: 0.78571429em 1.5em 0.78571429em;
+    text-transform: none;
+    text-shadow: none;
+    font-weight: bold;
+    line-height: 1em;
+    font-style: normal;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0.28571429rem;
+}
+.checkbox{
+    position: relative;
+    display: inline-block;
+    backface-visibility: hidden;
+    outline: none;
+    vertical-align: baseline;
+    font-style: normal;
+    font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 1rem;
+    line-height: 17px;
+    min-width: 17px;
+    min-height: 15px;
+}
+#error_mobile,#error_pass,#error_email,#error_usernamevim reg{
+    visibility:hidden;
+     color:#ff6666; 
 }

@@ -24,7 +24,11 @@
     <input type="password" name="pass" placeholder="Password">
   </div>
   <br>
-  <button class="ui button" type="submit">Login</button>
+  <button class="ui button" type="submit" id="submit">Login</button>
+  <div class="ui error message">
+  <ul class="list">
+    <li class="error emaillogin">Either Password or Email is Incorrect</li>
+  </ul>
   </form>
 </div>
 </div>
