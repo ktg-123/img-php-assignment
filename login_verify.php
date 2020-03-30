@@ -20,7 +20,7 @@ $uid="/^[A-Za-z0-9@_\.]{1,}$/";
         $row=mysqli_fetch_assoc($result);
             if(password_verify($pass,$row['pass'])){
 
-
+                $_SESSION['username']=$username;
                 if($row['first_name']==""&&$row['last_name']==""&&$row['image']==""){
                     header("Location : profile.php");
                 }

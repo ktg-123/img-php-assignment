@@ -1,9 +1,9 @@
 <?php
  include 'dbconnect.php';
     session_start();
-
+if(isset($_SESSION['username'])){
 ?>
-<html lang="en">
+<html>
 <head>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.css"/>
 <link rel="stylesheet" type="text/css" href="registration.css">
@@ -30,17 +30,24 @@
   </div>
   <div class="field">
     <label>Last Name</label><br>
-    <input type="text" name="last_name" placeholder="Last Name" id="last_name" value="<?php if (isset($last_name)) echo $last_name;?>">
+    <input type="text" name="last_name" placeholder="Last Name" id="last_name" required>
   </div>
   <br>
   <div class="field">
 <label for="photo" >Profile Picture </label><br>
-<input type="file" id="photo" name="photo" required style="border:0px">
+<input type="file" id="photo" name="avatar" required style="border:0px">
 </div>
 <br>
 
   <button type="submit" name="update">Submit</button>
+  <?php
+if(isset($_SESSION['message'])){
+  echo $_SESSION['message'];
+  unset($_SESSION['message']);
+}
 
+
+?>
  
 </div>
 </form>
@@ -49,3 +56,8 @@
 <script src="registration.js"></script>
 </body>
 </html>
+<?php
+}
+else{
+    header("Location : index.php");
+}
