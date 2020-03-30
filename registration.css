@@ -1,10 +1,9 @@
 .box{
     padding:2em 1em;
     margin:5em 40em 5em 50em;
-    border : 1px solid #191919;
 }
 body{
-background:linear-gradient(rgba(181, 181, 211, 0.2),rgba(153, 153, 187, 0.2));
+background:#FFFFFF;
 background-size:cover;
 background-position: center;
 }
@@ -86,7 +85,11 @@ button {
     min-width: 17px;
     min-height: 15px;
 }
-#error_mobile,#error_pass,#error_email,#error_usernamevim reg{
+#error_mobile,#error_pass,#error_email,#error_username,#error_blank{
     visibility:hidden;
      color:#ff6666; 
+}
+
+.error1{
+    color:red;
 }

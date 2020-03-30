@@ -1,0 +1,19 @@
+body{
+margin:0;
+padding:0;
+}
+.main{
+    display:grid;
+    grid-template-columns: 40% 60%;
+
+}
+.id{
+    padding-left:1em;
+    padding-top:2em;
+    background-color:#808080;
+}
+.info{
+    padding-left:2em;
+    padding-top:3em;
+    background-color:#a6a6a6;
+}
