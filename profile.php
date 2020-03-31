@@ -19,18 +19,18 @@ if(isset($_SESSION['username'])){
     <h1><label>Profile Information</label></h1><br>
   </div>
 <div>
-<form action="profile_verify.php" onsubmit="return checkerror()" method="POST" enctype="multipart/form-data">
+<form action="profile_verify.php" onsubmit="return check()" method="POST" enctype="multipart/form-data">
 <div >
 
   <div class="field">
     <label>First Name</label><br>
-    <input type="text" name="first_name" placeholder="First Name" id="first_name"  required>
+    <input type="text" name="first_name" placeholder="First Name" id="first_name"  required><label id="error_first" style="visibility:hidden;" >Only Alphabets Allowed</label>
     
 
   </div>
   <div class="field">
     <label>Last Name</label><br>
-    <input type="text" name="last_name" placeholder="Last Name" id="last_name" required>
+    <input type="text" name="last_name" placeholder="Last Name" id="last_name" required><label id="error_last" style="visibility:hidden;">Only Alphabets Allowed</label>
   </div>
   <br>
   <div class="field">
@@ -53,11 +53,35 @@ if(isset($_SESSION['message'])){
 </form>
 </div>
 </div>
-<script src="registration.js"></script>
+<script>
+    function check(){
+var first="/^[A-Za-z]{1,}$/";
+var last="/^[A-Za-z]{1,}$/";
+var first_name=document.getElementById("first_name").value;
+var last_name=document.getElementById("last_name").value
+if(first.test(first_name)){
+        document.getElementById("error_first").style.visibility="hidden"
+    }
+    else{
+        document.getElementById("error_first").style.visibility="visible";
+        return false;
+    }
+if(last.test(last_name)){
+        document.getElementById("error_last").style.visibility="hidden"
+    }
+    else{
+        document.getElementById("error_last").style.visibility="visible";
+        return false;
+    }
+
+
+
+    }
+</script>
 </body>
 </html>
 <?php
 }
 else{
-    header("Location : index.php");
+    header("Location:index.php");
 }

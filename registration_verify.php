@@ -1,7 +1,25 @@
 <?php
+ob_start();
 session_start();
+
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+    }
 include 'dbconnect.php';
-if(isset($_POST["signup_submit"])){
+if($_POST['user_name']){
+    $user_name=$_POST['user_name'];
+    $user_name=test_input($user_name);
+    $user_query="SELECT * FROM kunal_user where username='$user_name';";
+    $user_result=mysqli_query($conn,$user_query);
+    echo mysqli_num_rows($user_result);
+
+}
+
+else if(isset($_POST["signup_submit"])){
+$gender=$_POST['gender'];
 $mobile_no=$_POST['mobile_no'];
 $email_id=$_POST['email_id'];
 $username=$_POST['username'];
@@ -16,23 +34,22 @@ $uid="/^[A-Za-z0-9@_\.]{1,}$/";
             header("Location:registration.php");
     }
     
-    function test_input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-        }
+
  $mobile_no=test_input($mobile_no);
  $email_id=test_input($email_id);       
  $pass=test_input($pass);
  $username=test_input($username);
-
-//$pass=password_hash($pass,PASSWORD_BYCRYPT);
-
-$sql="INSERT INTO kunal_user(mobile_no,email_id,pass,username) VALUES ('$mobile_no','$email_id','$pass','$username')";
+ $gender=test_input($gender);
+ $pass=password_hash($pass,PASSWORD_BCRYPT);
+ 
+$sql="INSERT INTO kunal_user(mobile_no,email_id,pass,username,gender) VALUES ($mobile_no,'$email_id','$pass','$username','$gender');";
+//echo $sql ;
+//die();
 $result=mysqli_query($conn,$sql);
     if($result){
-        header("Location : index.php");
+       //echo "Hello";
+        header("Location:index.php");
+        die();
     }
     else{
         $_SESSION['message']="User Could not be Added to Database";
@@ -40,5 +57,5 @@ $result=mysqli_query($conn,$sql);
     }
 }
 else{
-    header("Location : index.php");
+    header("Location:index.php");
 }

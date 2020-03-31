@@ -10,6 +10,7 @@ session_start();
 ?>
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.css"/>
 <link rel="stylesheet" type="text/css" href="registration.css">
     <meta charset="UTF-8">
@@ -35,7 +36,7 @@ session_start();
   <div class="field">
     <label>Username</label><br>
     <input type="text" name="username" placeholder="Username" id="username" required><label id="error_username">Alphanumeric,@,_,. are Allowed</label><br>
-
+<span id="availability"></span>
   </div>
   <div class="field">
     <label>Email</label><br>
@@ -43,7 +44,7 @@ session_start();
   </div>
   <div class="field">
     <label>Password</label><br>
-    <input type="password" name="pass" id="pass1" required><label id="error_blank">Password Format is same as Username</label>
+    <input type="password" name="pass" id="pass1" required><label id="error_blank">Alphanumeric,@,_,. are Allowed</label>
   </div>
   <div class="field">
     <label>Confirm Password</label><br>
@@ -55,13 +56,13 @@ session_start();
         <input type="radio" name="gender" checked="" id="1" value="male" >
         <label for="1">Male</label>
       </div>
-    </div>
+    </div><br>
     <div class="field">
       <div class="checkbox">
         <input type="radio" name="gender" value="female" id="2">
         <label for="2">Female</label>
       </div>
-    </div>
+    </div><br>
     <div class="field">
       <div class="checkbox">
         <input type="radio" name="gender" value="other" id="3">
@@ -73,7 +74,7 @@ session_start();
   </div>
   <br>
  
-  <button type="submit" value="submit" name="signup_submit">Submit</button><br>
+  <button type="submit" value="submit" id="signup_submit" name="signup_submit">Submit</button><br>
 <?php
 if(isset($_SESSION['message'])){
   echo $_SESSION['message'];
@@ -88,5 +89,39 @@ if(isset($_SESSION['message'])){
 </div>
 </div>
 <script type="text/javascript" src="registration.js"></script>
+<script>
+    $(document).ready(function(){
+     $('#username').blur(function(){
+     
+    var username=$(this).val();
+    // Ajax request to server
+     $.ajax({
+     url: 'registration_verify.php',
+     method:"POST",
+     data:{user_name:username},
+     success:function(data)
+     
+     { 
+        if(data!=0)
+        { 
+        $('#availability').html('<span>Username not availiable</span>');
+        $('#signup_submit').attr("disabled",true);
+
+
+        }else
+        {
+            $('#availability').html('<span></span>')
+        $('#signup_submit').attr("disabled",false);
+        }
+ }
+});
+   });
+      });
+        
+  
+  
+  
+  
+  </script>
 </body>
 </html>

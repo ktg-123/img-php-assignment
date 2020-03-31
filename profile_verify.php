@@ -10,7 +10,7 @@ $first="/^[A-Za-z]{1,}$/";
 $last="/^[A-Za-z]{1,}$/";     
 if(!preg_match($first,$first_name)||!preg_match($last,$last_name)){
     $_SESSION['message']="Please Enter Valid Charachters";
-    header("Location : profile.php");
+    header("Location:profile.php");
 }
 function test_input($data) {
     $data = trim($data);
@@ -32,19 +32,20 @@ $last_name=test_input($last_name);
                     move_uploaded_file($avatar_tmp_name,"avatar/".$avatar_name);
 
 
-                    $sql="UPDATE kunal_user() set first_name='$first_name',last_name='$last_name',avatar='$avatar_name' where username='$username';";
-                    $result=$mysqli_query($conn,$sql);
+                    $sql="UPDATE kunal_user set first_name='$first_name',last_name='$last_name',avatar='$avatar_name' where username='$username';";
+                   // echo $sql; die();
+                    $result=mysqli_query($conn,$sql);
                     if($result){
-                        header("Location : home.php");
+                        header("Location:home.php");
                     }
                     else{
                         $_SESSION['message']="Profile Update Failed";
-                        header("Location : profile.php");
+                        header("Location:profile.php");
                     }
                 }
                 else{
                     $_SESSION['message']="Image size is greater than 2mb";
-                        header("Location : profile.php");
+                        header("Location:profile.php");
                 }
             }
 
@@ -53,11 +54,11 @@ $last_name=test_input($last_name);
     }
     else{
         $_SESSION['message']="Please Upload File";
-        header('Location : profile.php');
+        header('Location:profile.php');
     }
 
 
 }
 else{
-    header("Location : index.php");
+    header("Location:index.php");
 }

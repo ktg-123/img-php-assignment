@@ -1,8 +1,10 @@
 .box{
     padding:2em 1em;
-    margin:5em 40em 5em 50em;
+    margin:5em 4em 5em 2em;
 }
 body{
+    margin:0;
+    padding:0;
 background:#FFFFFF;
 background-size:cover;
 background-position: center;
@@ -92,4 +94,7 @@ button {
 
 .error1{
     color:red;
+}
+#availability{
+color:red;
 }

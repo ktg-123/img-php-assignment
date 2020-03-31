@@ -22,16 +22,21 @@ session_start();
 <div>
   <div class="field">
     <label>Username</label>
-    <input type="text" name="username" placeholder="Username" id="username" required><label id="error_username">Alphanumeric,@,_,. are Allowed</label><br>
+    <input type="text" name="username" placeholder="Username" id="username" value="<?php if(isset($_COOKIE['username'])){echo $_COOKIE['username'];} ?>" required><label id="error_username">Alphanumeric,@,_,. are Allowed</label><br>
   </div>
   <div class="field">
     <label>Password</label>
-    <input type="password" name="pass" id="pass1" required><label id="error_blank">Password Format is same as Username </label>
+    <input type="password" name="pass" id="pass1" value="<?php if(isset($_COOKIE['username'])){echo $_COOKIE['pass'];} ?>" required><label id="error_blank">Alphanumeric,@,_,. are Allowed</label>
   </div>
   <br>
-  <button class="button" type="submit" id="submit" name="login">Login</button>
-  <a href="registration.php">New User? Sign up</a><br>
+  <button class="button" type="submit" id="submit" name="login" value="login">Login</button>
+  <a href="registration.php">New User? Sign up</a><br><br>
+  <div class="field">
+    
+    <input type="checkbox" name="rememberme" id="rememberme" ><label>Remember Me</label>
+  </div>
 </div>
+
   </form>
   <?php
 if(isset($_SESSION['message'])){
