@@ -3,6 +3,7 @@ session_start();
 include 'dbconnect.php';
 
 if(isset($_SESSION['username'])){
+
     if(isset($_SESSION['touser_name'])){
         unset($_SESSION['touser_name']);
     }
@@ -20,7 +21,9 @@ $row=mysqli_fetch_assoc($result);
  }
 $query="SELECT * FROM kunal_user where username!='$username';";
 $result1=mysqli_query($conn,$query);
-
+if($row['first_name']==""){
+    header("Location:profile.php");
+}
 ?>
 <html>
 <head>

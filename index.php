@@ -1,5 +1,11 @@
 <?php
 session_start();
+if(isset($_SESSION['username'])){
+ // echo "hi"; die();
+  header("Location:home.php");
+}
+
+
 
 
 ?>
@@ -33,7 +39,7 @@ session_start();
   <a href="registration.php">New User? Sign up</a><br><br>
   <div class="field">
     
-    <input type="checkbox" name="rememberme" id="rememberme" ><label>Remember Me</label>
+<input type="checkbox" name="rememberme" id="rememberme" <?php if(isset($_COOKIE['pass'])) { ?> checked <?php  } ?> ><label>Remember Me</label>
   </div>
 </div>
 

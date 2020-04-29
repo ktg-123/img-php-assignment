@@ -37,6 +37,8 @@ $uid="/^[A-Za-z0-9@_\.]{1,}$/";
 
 
                 $_SESSION['username']=$username;
+                //echo $_SESSION['username'];
+                //die();
                 if($row['first_name']==""&&$row['last_name']==""&&$row['avatar']==""){
                     header("Location:profile.php");
                 }
@@ -52,6 +54,7 @@ $uid="/^[A-Za-z0-9@_\.]{1,}$/";
     }
     else{
         $_SESSION['message']="Username don't Exist";
+        header("Location:index.php");
     }
     
 

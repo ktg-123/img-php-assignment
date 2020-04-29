@@ -36,6 +36,7 @@ $last_name=test_input($last_name);
                    // echo $sql; die();
                     $result=mysqli_query($conn,$sql);
                     if($result){
+                        
                         header("Location:home.php");
                     }
                     else{
@@ -48,7 +49,10 @@ $last_name=test_input($last_name);
                         header("Location:profile.php");
                 }
             }
-
+            else{
+                $_SESSION['message']="Image is not in valid format";
+                        header("Location:profile.php");
+            }
 
 
     }

@@ -79,7 +79,10 @@ function test_input($data) {
     return $data;
     }
 if(isset($_POST['chat'])||isset($_SESSION['touser_name'])){
-$fromuser_name=$_SESSION['username'];
+if(!isset($_POST['userchat'])&&!isset($_SESSION['touser_name'])){
+header("Location:home.php");
+}
+    $fromuser_name=$_SESSION['username'];
 
 if(!empty($_SESSION['touser_name'])){
     //echo "hi"; die();
